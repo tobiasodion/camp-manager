@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SchoolDetails>
+
+
+@*<div id="schoolList">
+    <div class="pagedList" data-otf-target="#schoolList">
+     @Html.PagedListPager(Model, page => Url.Action("ManageSchool", new { page}),
+     PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+*@
+
+<div id="schoolList">
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolCoordinatorPhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolCoordinatorMatNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfStudents)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolRegistrationStatus)
+            </th>
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolCoordinatorPhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.SchoolCoordinatorMatNo)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.NumberOfStudents)
+                </td>
+                    <td>
+                     @Html.DisplayFor(modelItem => item.SchoolProgressCounter) of  @Html.DisplayFor(modelItem => item.NumberOfStudents) (@Html.DisplayFor(modelItem => item.SchoolRegistrationStatus))
+                    </td>
+                <td>
+                    @Html.ActionLink("Print Login Ticket", "GenerateStudentLoginSlip", new { id = item.SchoolId })|
+                    @Html.ActionLink("Print Receipt", "DownloadActionAsPDF", new { id = item.SchoolId })|
+                    @Html.ActionLink("Print ID Cards", "GenerateSchoolIDCards", new { id = item.SchoolId })|
+                    @Html.ActionLink("Remove", "RemoveSchool", new { id = item.SchoolId })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

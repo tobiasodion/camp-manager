@@ -1,0 +1,61 @@
+﻿@model IEnumerable<UYIOSA.Models.StudentDetails>
+
+<div id = "studentList">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSchoolName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentMatNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentPhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSex)
+            </th>
+            <th></th>
+        </tr>
+
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentSchoolName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentMatNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentPhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentSex)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Details", "RegisteredStudentDetails", new { id = item.StudentId })|
+                    @Html.ActionLink("Edit", "EditRegisteredStudents", new { id = item.StudentId })|
+                    @Html.ActionLink("Print ID Card", "PrintOneIDcard", new { id = item.StudentId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

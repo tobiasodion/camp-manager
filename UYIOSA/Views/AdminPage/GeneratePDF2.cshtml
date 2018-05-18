@@ -1,0 +1,40 @@
+﻿@model IEnumerable<UYIOSA.Models.StudentDetails>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginDetails</title>
+</head>
+<body>
+   
+    <table class="table">
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        USERNAME:  @Html.DisplayFor(modelItem => item.StudentUserName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PASSWORD:  @Html.DisplayFor(modelItem => item.StudentPassword)
+                    </td>
+                </tr>
+
+            }
+       
+
+    </table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿@model UYIOSA.Models.GeneratePDFModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GeneratePDF</title>
+</head>
+<body>
+    <div>
+        <img src="@Model.PDFLogo" alt="" />
+        <hr />
+    </div>
+    
+    <div>
+        <h4>@Html.Raw(Model.PDFContent)</h4>
+    </div>
+</body>
+</html>

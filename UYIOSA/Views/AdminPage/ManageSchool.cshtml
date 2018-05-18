@@ -1,0 +1,63 @@
+﻿@model IEnumerable<UYIOSA.Models.SchoolDetails>
+
+@{
+    ViewBag.Title = "ManageSchool";
+    Layout = "~/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<h2>Manage School</h2>
+
+<p>
+    @Html.ActionLink("Add New School", "RegisterSchool")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           @Html.DisplayNameFor(model => model.SchoolName)
+        </th> 
+        <th>
+            @Html.DisplayNameFor(model => model.SchoolCoordinatorPhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfStudents)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.SchoolRegistrationStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @Html.DisplayFor(modelItem => item.SchoolName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SchoolCoordinatorPhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SchoolProgressCounter) of  @Html.DisplayFor(modelItem => item.NumberOfStudents)
+        </td>
+
+        @if (item.SchoolProgressCounter == item.NumberOfStudents)
+        {
+            <td>
+               "Completed"
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolRegistrationStatus)
+            </td>
+        }
+       
+        <td>
+            @Html.ActionLink("Print Login Ticket", "GenerateStudentLoginSlip", new { id=item.SchoolId })|
+            @Html.ActionLink("Print Receipt", "DownloadActionAsPDF", new { id=item.SchoolId })|
+        </td>
+    </tr>
+}
+
+</table>

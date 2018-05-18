@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SchoolDetails>
+
+@{
+    ViewBag.Title = "ManageSchool";
+    Layout = "~/Views/Shared/_SuperAdminPageLayout.cshtml";
+}
+
+<h2>Manage School</h2>
+
+@*<div class="container" style="float: right;">
+        <form method="get">
+            <input type="search" name="searchTerm" />
+            <input type="submit" value="search By SCHOOL NAME" />
+        </form>
+    </div>*@
+
+@using (Ajax.BeginForm(
+                    new AjaxOptions
+                    {
+                        HttpMethod = "get",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "schoolList"
+                    }))
+{
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="search By SCHOOL NAME" />
+}
+
+<br />
+
+<p>
+    @Html.ActionLink("Add New School", "RegisterSchool")
+</p>
+
+@Html.Partial("_manageSchoolPartial", Model)
+

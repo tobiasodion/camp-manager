@@ -1,0 +1,102 @@
+﻿@model UYIOSA.Models.StudentDetails
+
+@{
+    ViewBag.Title = "RegisteredStudentDetails";
+    Layout = "~/Views/Shared/_SuperAdminPageLayout.cshtml";
+}
+
+<h2>Registered Students</h2>
+
+<div>
+    <h4>Student Details</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        @if (Model.Files.Any(f => f.FileType == UYIOSA.Models.FileType.Avatar))
+            {   
+                <dt>
+        Student Profile
+                </dt>
+                <dd>
+                    @{
+                        var query = @Model.Files.First(f => f.FileType == UYIOSA.Models.FileType.Avatar).FileId;
+                        var model = @Model.Files.First(f => f.FileId == query).Content;
+                        var base64 = Convert.ToBase64String(model);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                     }
+                    
+                    <img src="@imgSrc" alt="avatar" class="img-circle" height="100" width="100" />
+                </dd>
+        }
+
+        <dt>
+           <br />
+        </dt>
+
+        <dd>
+            <br />
+        </dd>
+        
+        <dt> 
+            @Html.DisplayNameFor(model => model.StudentSchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentSchoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentMatNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentMatNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentPhoneNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentPhoneNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentSex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentSex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentSpace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentSpace)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditRegisteredStudents", new { id = Model.StudentId }) |
+    @Html.ActionLink("Print ID Card", "PrintOneIDcard", new { id = Model.StudentId }) |
+    @Html.ActionLink("Back to List", "ViewRegisteredStudents")
+</p>

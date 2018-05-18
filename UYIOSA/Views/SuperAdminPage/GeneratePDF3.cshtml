@@ -1,0 +1,47 @@
+﻿
+@model IEnumerable<UYIOSA.Models.IDViewModel>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GeneratePDF3</title>
+</head>
+<body>
+
+    @foreach (var item in Model)
+    {
+
+        var base64 = Convert.ToBase64String(item.File.Content);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+        <div class="container" style="float: left; margin-left:10px; margin-top:0px; height: 290px; width: 210px;border: thick;">
+           
+            <div style="font-size:x-large; font-family:Verdana; align-content:center;">UYIOSA 2017</div>
+            <div>
+                <img src="@imgSrc" alt="avatar" height="100" width="170" />
+            </div>
+
+          <div style ="font-size:large;">@Html.DisplayFor(modelItem => item.Student.StudentSchoolName)</div>     
+          
+           <div> @Html.DisplayFor(modelItem => item.Student.StudentFirstName) @Html.DisplayFor(modelItem => item.Student.StudentLastName)
+            <br /> @Html.DisplayFor(modelItem => item.Student.StudentMatNo) <br /> @Html.DisplayFor(modelItem => item.Student.StudentSex)
+            </div>      
+
+                 
+          <div> @Html.DisplayFor(modelItem => item.Student.StudentSpace)<br />
+             @Html.DisplayFor(modelItem => item.Student.StudentPhoneNo)</div>       
+                     
+        </div>
+    }
+
+
+</body>
+
+</html>

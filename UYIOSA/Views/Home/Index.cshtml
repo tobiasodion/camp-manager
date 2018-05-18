@@ -1,0 +1,10 @@
+﻿@model IEnumerable<UYIOSA.Models.AdminDetails>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@foreach(var item in Model)
+{
+    <h4>@item.FirstName</h4>
+    <div>@item.LastName, @item.MatNo</div>
+}

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UYIOSA", "UYIOSA\UYIOSA.csproj", "{0B787642-674E-45D9-AC72-56C8DF5AA122}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UYIOSA.Tests", "UYIOSA.Tests\UYIOSA.Tests.csproj", "{BC07E9D0-7C95-497A-8CDF-3375FB2CF652}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B787642-674E-45D9-AC72-56C8DF5AA122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B787642-674E-45D9-AC72-56C8DF5AA122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B787642-674E-45D9-AC72-56C8DF5AA122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B787642-674E-45D9-AC72-56C8DF5AA122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC07E9D0-7C95-497A-8CDF-3375FB2CF652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC07E9D0-7C95-497A-8CDF-3375FB2CF652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC07E9D0-7C95-497A-8CDF-3375FB2CF652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC07E9D0-7C95-497A-8CDF-3375FB2CF652}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
